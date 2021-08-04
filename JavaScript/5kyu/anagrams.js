@@ -53,3 +53,23 @@ function anagrams(word, words) {
 console.log(anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"])); // => ['carer', 'racer']
 
 console.log(anagrams("laser", ["lazing", "lazy", "lacer"])); // => []
+
+/* 
+    Suggested Solution 
+    
+function anagrams(word, words) {
+  word = word.split('').sort().join('');
+  return words.filter(function(v) {return word == v.split('').sort().join('');});
+}
+
+
+===> We split the word assigned, then sort it (so letters appear together) and then join it up. Then we filter the provided array, taking each word and returning the words (split, sorted, and joined) that match the word.
+
+ES6 version:
+function anagrams(word, words) {
+	word = word.split("").sort().join("")
+	return words.filter(indWord => word === indWord.split("").sort().join(""))
+}
+
+
+*/
